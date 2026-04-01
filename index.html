@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="calculator">
+    <div class="display">
+      <div class="expression" id="expression"></div>
+      <div class="result" id="result">0</div>
+    </div>
+    <div class="mode-bar">
+      <button class="mode-btn active" id="degBtn" onclick="setAngleMode('deg')">DEG</button>
+      <button class="mode-btn" id="radBtn" onclick="setAngleMode('rad')">RAD</button>
+      <span class="memory-indicator" id="memIndicator"></span>
+    </div>
+    <div class="buttons">
+      <!-- Row 1: Scientific -->
+      <button class="btn sci" onclick="input('sin(')">sin</button>
+      <button class="btn sci" onclick="input('cos(')">cos</button>
+      <button class="btn sci" onclick="input('tan(')">tan</button>
+      <button class="btn sci" onclick="input('log(')">log</button>
+      <button class="btn sci" onclick="input('ln(')">ln</button>
+
+      <!-- Row 2: Scientific -->
+      <button class="btn sci" onclick="input('sqrt(')">&#8730;</button>
+      <button class="btn sci" onclick="input('^')">x<sup>y</sup></button>
+      <button class="btn sci" onclick="input('1/')">1/x</button>
+      <button class="btn sci" onclick="input('pi')">&#960;</button>
+      <button class="btn sci" onclick="input('e')">e</button>
+
+      <!-- Row 3: Scientific -->
+      <button class="btn sci" onclick="input('(')">(</button>
+      <button class="btn sci" onclick="input(')')">)</button>
+      <button class="btn sci" onclick="input('!')">n!</button>
+      <button class="btn sci" onclick="memStore()">MS</button>
+      <button class="btn sci" onclick="memRecall()">MR</button>
+
+      <!-- Row 4: Numbers + ops -->
+      <button class="btn num" onclick="input('7')">7</button>
+      <button class="btn num" onclick="input('8')">8</button>
+      <button class="btn num" onclick="input('9')">9</button>
+      <button class="btn op" onclick="input('/')">&divide;</button>
+      <button class="btn clear" onclick="clearAll()">AC</button>
+
+      <!-- Row 5 -->
+      <button class="btn num" onclick="input('4')">4</button>
+      <button class="btn num" onclick="input('5')">5</button>
+      <button class="btn num" onclick="input('6')">6</button>
+      <button class="btn op" onclick="input('*')">&times;</button>
+      <button class="btn clear" onclick="backspace()">&#9003;</button>
+
+      <!-- Row 6 -->
+      <button class="btn num" onclick="input('1')">1</button>
+      <button class="btn num" onclick="input('2')">2</button>
+      <button class="btn num" onclick="input('3')">3</button>
+      <button class="btn op" onclick="input('-')">-</button>
+      <button class="btn equals" id="equalsBtn" onclick="calculate()">=</button>
+
+      <!-- Row 7 -->
+      <button class="btn num zero" onclick="input('0')">0</button>
+      <button class="btn num" onclick="input('.')">.</button>
+      <button class="btn op" onclick="input('+')">+</button>
+      <button class="btn op" onclick="toggleSign()">&plusmn;</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

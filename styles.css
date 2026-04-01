@@ -1,0 +1,231 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a1628 0%, #102040 50%, #0d1f3c 100%);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.calculator {
+  width: 380px;
+  background: linear-gradient(145deg, #0f2545, #163060);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(30, 90, 180, 0.15),
+    inset 0 1px 0 rgba(100, 160, 255, 0.1);
+}
+
+/* Display */
+.display {
+  background: linear-gradient(180deg, #0a1a30, #0d2040);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  border: 1px solid rgba(60, 130, 230, 0.15);
+  box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.expression {
+  font-size: 15px;
+  color: rgba(140, 180, 240, 0.7);
+  min-height: 22px;
+  word-break: break-all;
+  text-align: right;
+  width: 100%;
+}
+
+.result {
+  font-size: 36px;
+  font-weight: 300;
+  color: #e0eaff;
+  letter-spacing: 1px;
+  word-break: break-all;
+  text-align: right;
+  width: 100%;
+  text-shadow: 0 0 20px rgba(100, 160, 255, 0.3);
+}
+
+/* Mode bar */
+.mode-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 0 4px;
+}
+
+.mode-btn {
+  background: rgba(30, 70, 140, 0.3);
+  color: rgba(140, 180, 240, 0.6);
+  border: 1px solid rgba(60, 120, 200, 0.15);
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mode-btn.active {
+  background: rgba(40, 100, 200, 0.4);
+  color: #80b8ff;
+  border-color: rgba(80, 150, 255, 0.3);
+  box-shadow: 0 0 8px rgba(60, 130, 230, 0.2);
+}
+
+.memory-indicator {
+  margin-left: auto;
+  font-size: 11px;
+  color: #5a9cf5;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Buttons grid */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.btn {
+  height: 52px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:active {
+  transform: scale(0.94);
+}
+
+/* Number buttons */
+.btn.num {
+  background: linear-gradient(180deg, #1a3a6a, #15305a);
+  color: #d0e0ff;
+  border: 1px solid rgba(60, 120, 200, 0.12);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.btn.num:hover {
+  background: linear-gradient(180deg, #1f4580, #1a3a6a);
+  box-shadow: 0 4px 12px rgba(30, 90, 180, 0.3);
+}
+
+/* Operator buttons */
+.btn.op {
+  background: linear-gradient(180deg, #1e4a8a, #183d72);
+  color: #80b8ff;
+  border: 1px solid rgba(80, 150, 255, 0.15);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  font-size: 20px;
+}
+
+.btn.op:hover {
+  background: linear-gradient(180deg, #2358a0, #1e4a8a);
+  box-shadow: 0 4px 12px rgba(40, 100, 200, 0.35);
+}
+
+/* Scientific buttons */
+.btn.sci {
+  background: linear-gradient(180deg, #122a50, #0e2240);
+  color: rgba(140, 185, 255, 0.8);
+  border: 1px solid rgba(50, 100, 180, 0.1);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn.sci:hover {
+  background: linear-gradient(180deg, #183562, #142e55);
+  color: #a0c8ff;
+  box-shadow: 0 3px 10px rgba(30, 80, 160, 0.3);
+}
+
+/* Clear / backspace */
+.btn.clear {
+  background: linear-gradient(180deg, #2a1a3a, #221535);
+  color: #c090e0;
+  border: 1px solid rgba(140, 80, 200, 0.15);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn.clear:hover {
+  background: linear-gradient(180deg, #351f48, #2a1a3a);
+  box-shadow: 0 4px 12px rgba(100, 50, 160, 0.3);
+}
+
+/* Equals button */
+.btn.equals {
+  background: linear-gradient(180deg, #2060c0, #1850a0);
+  color: #fff;
+  border: 1px solid rgba(80, 160, 255, 0.2);
+  grid-row: span 2;
+  font-size: 28px;
+  font-weight: 300;
+  box-shadow: 0 4px 15px rgba(30, 90, 200, 0.4);
+}
+
+.btn.equals:hover {
+  background: linear-gradient(180deg, #2870d8, #2060c0);
+  box-shadow: 0 6px 20px rgba(40, 110, 220, 0.5);
+}
+
+/* Zero button spans 2 */
+.btn.zero {
+  grid-column: span 2;
+}
+
+/* Error state */
+.result.error {
+  color: #ff6b6b;
+  font-size: 20px;
+  text-shadow: 0 0 15px rgba(255, 80, 80, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 420px) {
+  .calculator {
+    width: 100%;
+    border-radius: 0;
+    padding: 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .btn {
+    height: 48px;
+  }
+
+  .result {
+    font-size: 30px;
+  }
+}
